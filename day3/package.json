@@ -1,0 +1,17 @@
+{
+  "name": "05hero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "itcast_heima_zm",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.12.2",
+    "bootstrap": "^3.3.7",
+    "formidable": "^1.1.1"
+  }
+}

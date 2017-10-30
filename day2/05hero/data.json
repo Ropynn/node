@@ -1,0 +1,28 @@
+{
+  "heros": [
+    {
+      "id": 1,
+      "name": "亚瑟",
+      "gender": "男",
+      "img": "/img/1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "李白",
+      "gender": "男",
+      "img": "/img/2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "安奇拉",
+      "gender": "女",
+      "img": "/img/3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "虞姬",
+      "gender": "女",
+      "img": "/img/4.jpg"
+    }
+  ]
+}

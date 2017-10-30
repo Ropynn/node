@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    table {
+      margin: 0 auto;
+      width: 500px;
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form" action="/add" method="POST" enctype="multipart/form-data">
+    <table>
+      <tr>
+        <td>姓名</td>
+        <td>
+          <input type="text" name="name" id="name">
+        </td>
+      </tr>
+      <tr>
+        <td>性别</td>
+        <td>
+          <input id="man" type="radio" name="gender" value="男">
+          <label for="man">男</label>
+          <input type="radio" name="gender" id="woman" value="女">
+          <label for="woman">女</label>
+        </td>
+      </tr>
+      <tr>
+        <td>图片</td>
+        <td>
+          <input type="file" name="img" id="img">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" id="btn" value="新增">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+  //如果使用异步方式来提交新增的数据，jquery中的ajax方法会默认将提交数据的方式设置为与：enctype="application/x-www-form-urlencoded"
+
+  $("#btn").on("click", function (e) {
+    //在h5中为了能够更好的提交上传的参数，所以不能够使用form的serialize方法来序列化参数
+    //可以用formdata来帮助我们上传参数
+    //1.0创建一个formData对象
+    var fd = new FormData();
+    //2.0将要提交到服务器的参数添加到formData对象
+    //append方法要传入两个参数：键值对象
+    fd.append("name", $("#name").val());
+    fd.append("gender", $("input[type=radio]:checked").val());
+    //document.getElementById("img").files[0]:得到上传过来的图片文件
+    fd.append("img", document.getElementById("img").files[0]);
+
+    //阻止默认事件
+    e.preventDefault();
+
+    $.ajax({
+      url: "add",
+      type: "POST",
+      // data: $("#form").serialize(),
+      //关闭jquery内容的检查功能
+      //告诉jquery不要验证我们fd中的参数的类型
+      contentType: false,
+      //告诉jquery不要检查fd中提交的参数
+      processData: false,
+      data: fd,
+      dataType: "JSON",
+      success: function (result) {
+        if (result.statu == 0) {
+          alert(result.msg);
+          window.location = "/";//跳转到/
+        } else {
+          alert(result.msg);
+          window.location = window.location;//表示刷新当前页面
+        }
+      }
+    });
+  })
+</script>
+
+</html>

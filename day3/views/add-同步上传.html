@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 0 auto;
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+        <table>
+                <tr>
+                    <td>姓名</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>性别</td>
+                    <td><input id="man" type="radio" name="gender" value="男"><label for="man">男</label> <input type="radio"  name="gender" id="woman" value="女"><label for="woman">女</label></td>
+                </tr>
+                <tr>
+                    <td>图片</td>
+                    <td><input type="file" name="img"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="新增"></td>
+                </tr>
+            </table>
+    </form>
+</body>
+</html>

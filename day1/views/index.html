@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #div {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+    <input type="button" id="btn" value="隐藏">
+    <div id="div">
+        <img src="/img/wj.jpg" alt="吴京">
+    </div>
+</body>
+<!-- 
+../js/jquery.min.js     /js/jquery.min.js 
+    一般情况下：在服务器中的静态页面中使用文件的路径建议使用网站绝对路径:从根目录开始
+
+ -->
+<script src="/js/jquery.min.js"></script>
+<script>
+    $("#btn").on("click",function(){
+        $("#div").hide(2000);
+    });
+</script>
+</html>
+
+
+
+
+
